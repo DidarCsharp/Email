@@ -2,8 +2,7 @@
         {
             try
             {
-                //-------Monthly Pending Bill End-----//
-
+              
                 MailMessage mail = new MailMessage();
                 //--- Your Mail Account
                 mail.From = new System.Net.Mail.MailAddress("did122333@gmail.com");
