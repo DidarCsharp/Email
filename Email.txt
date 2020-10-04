@@ -1,0 +1,42 @@
+    private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //-------Monthly Pending Bill End-----//
+
+                MailMessage mail = new MailMessage();
+                //--- Your Mail Account
+                mail.From = new System.Net.Mail.MailAddress("did122333@gmail.com");
+                SmtpClient smtp = new SmtpClient();
+                smtp.Port = 587;
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                // smtp.UseDefaultCredentials = false;
+                smtp.UseDefaultCredentials = true;
+                //---Your Mail Password
+                smtp.Credentials = new NetworkCredential(mail.From.Address, "password");
+                smtp.Host = "smtp.gmail.com";
+                //---Destination Mail             
+                mail.To.Add(new MailAddress("WhereyouwantToSendMail@mail.com"));
+                //mail.IsBodyHtml = true;
+                //-----recipient 1
+                //string st = "Test";
+                //-----recipient 1 End
+                mail.Subject = "Test Mail";
+                mail.Body = "<h1>Date:" + DateTime.Now + "</h1>+<h3>Sale:</h>";
+                mail.IsBodyHtml = true;                
+                smtp.Send(mail);
+                //---Extra Work
+                //--You have you Enabel your google accout security to Low
+                //--After sign into google account, go to:
+                //--- https://www.google.com/settings/security/lesssecureapps
+                //--- or
+                //--- https://myaccount.google.com/lesssecureapps
+            }
+
+            catch (Exception Ex)
+            {
+            }
+
+
+        }
